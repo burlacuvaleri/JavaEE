@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Hello World! HOME.jsp</h1>
-        <p> Texy obisnuit
+        <p> Text obisnuit
 
         <p> <%=request.getAttribute("attMesaj")%> </p>
 
