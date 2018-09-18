@@ -15,23 +15,25 @@
     </head>
     <body>
         <h1>CMS DEPARTAMENTE PAGE</h1>
+        <p><a href="cmsshoweditdepartamentserv?id=0">create new departament</a></p>
         <p> Aici va fi lista departamentelor ! </p>
 
-        <%
 
+        <%
             List<Departament> lista = (List<Departament>) request.getAttribute("lista");
 
             if (lista != null) {
                 int i = 0;
                 for (Departament dep : lista) {
                     i++;
-                    out.print("<p>" + i + " cu ID=" + dep.getId() + " " + dep.getDenumire()
-                            + " | <a href=\"cmsshoweditdepartamentserv?id=" + dep.getId() + "\"> edit</a>" + " | delete"
+                    out.println("<p>" + i + " cu ID=" + dep.getId() + " " + dep.getDenumire()
+                            + " | <a href=\"cmsshoweditdepartamentserv?id=" + dep.getId() + "\"> edit</a> "
+                            + " | <a href=\"cmsdeletedepartamentserv?id=" + dep.getId() + "\"> delete </a>"
+                            + " | <a href=\"cmsshoweditdepartamentserv?id=0" + dep.getId() + "\"> create </a>"
                             + "</p>");
 
                 }
             }
-
         %>
 
 

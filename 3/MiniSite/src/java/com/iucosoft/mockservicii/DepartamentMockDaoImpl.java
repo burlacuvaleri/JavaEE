@@ -27,12 +27,6 @@ public class DepartamentMockDaoImpl implements DepartamentDaoIntf {
 
     public static DepartamentDaoIntf instance;
 
-    private DepartamentMockDaoImpl() {
-
-        tabela = new LinkedHashMap<>();
-        init();
-    }
-
     public static DepartamentDaoIntf getInstance() {
 
         if (instance == null) {
@@ -42,8 +36,14 @@ public class DepartamentMockDaoImpl implements DepartamentDaoIntf {
         return instance;
     }
 
-    private void init() {
+    private DepartamentMockDaoImpl() {
 
+        tabela = new LinkedHashMap<>();
+
+        init();
+    }
+
+    private void init() {
         try {
             save(new Departament("UNU DEP", "UNU BUN"));
             save(new Departament("DOI DEP", "DOI BUN"));
@@ -85,7 +85,7 @@ public class DepartamentMockDaoImpl implements DepartamentDaoIntf {
     @Override
     public Departament findById(int id) throws SQLException {
 
-        if (!tabela.containsKey(id)) {
+        if (tabela.containsKey(id)) {
             return tabela.get(id);
         } else {
             throw new SQLException("Nu este departament cu id = " + id);

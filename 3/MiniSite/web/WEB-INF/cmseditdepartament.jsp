@@ -14,8 +14,14 @@
     <body>
         <h1>CMS Departament EDITARE PAGE ! JSP Editare !</h1>
 
-        ${dep}
+        <%--${dep} --%>
 
+        <form action="cmseditdepartamentserv" method="POST">
+            <p> ID <input type="text" name="ID_DEP" value="${dep.id}" size="4" /></p>
+            <p> Denumire <input type="text" name="DENUM_DEP" value="${dep.denumire}" size="30" /></p>
+            <p> Descriere <textarea name="DESC_DEP" rows="8" cols="30">${dep.descriere}</textarea></p>
+            <p> <input type="submit" value="SAVE/UPDATE" /></p>
+        </form>
 
 
     </body>

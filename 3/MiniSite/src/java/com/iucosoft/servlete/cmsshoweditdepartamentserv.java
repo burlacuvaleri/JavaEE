@@ -55,19 +55,21 @@ public class cmsshoweditdepartamentserv extends HttpServlet {
             DepartamentDaoIntf depDao = DepartamentMockDaoImpl.getInstance();
 
             try {
+
                 dep = depDao.findById(id);
+
             } catch (SQLException ex) {
                 Logger.getLogger(cmsshoweditdepartamentserv.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.setAttribute("dep", dep);
-
-            request.getRequestDispatcher("/WEB-INF/cmseditdepartament.jsp").forward(request, response);
 
         }
+        request.setAttribute("dep", dep);
+
+        request.getRequestDispatcher("/WEB-INF/cmseditdepartament.jsp").forward(request, response);
 
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

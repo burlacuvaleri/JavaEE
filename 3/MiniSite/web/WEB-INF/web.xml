@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <listener>
+        <description>ServletContextListener, ServletContextAttributeListener</description>
+        <listener-class>com.iucosoft.listeneri.AppListener</listener-class>
+    </listener>
     <servlet>
-        <servlet-name>cmsshoweditdepartament</servlet-name>
+        <servlet-name>cmsshoweditdepartamentserv</servlet-name>
         <servlet-class>com.iucosoft.servlete.cmsshoweditdepartamentserv</servlet-class>
     </servlet>
     <servlet>
@@ -16,9 +20,13 @@
         <servlet-name>cmseditdepartamentserv</servlet-name>
         <servlet-class>com.iucosoft.servlete.cmseditdepartamentserv</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cmsdeletedepartamentserv</servlet-name>
+        <servlet-class>com.iucosoft.servlete.cmsdeletedepartamentserv</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>cmsshoweditdepartament</servlet-name>
-        <url-pattern>/cmsshoweditdepartament</url-pattern>
+        <servlet-name>cmsshoweditdepartamentserv</servlet-name>
+        <url-pattern>/cmsshoweditdepartamentserv</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>cmshomeserv</servlet-name>
@@ -32,14 +40,16 @@
         <servlet-name>cmseditdepartamentserv</servlet-name>
         <url-pattern>/cmseditdepartamentserv</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cmsdeletedepartamentserv</servlet-name>
+        <url-pattern>/cmsdeletedepartamentserv</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>
-            home.jsp
-        </welcome-file>
+        <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

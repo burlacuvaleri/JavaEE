@@ -8,28 +8,28 @@ import java.util.Objects;
  */
 public class Departament {
 
-    int id;
-    String denumire;
-    String descrere;
+    private int id;
+    private String denumire;
+    private String descriere;
 
     public Departament() {
         this.denumire = "";
-        this.descrere = "";
+        this.descriere = "";
     }
 
-    public Departament(int id, String denumire, String descrere) {
+    public Departament(int id, String denumire, String descriere) {
         this.id = id;
         this.denumire = denumire;
-        this.descrere = descrere;
+        this.descriere = descriere;
     }
 
     public Departament(int id) {
         this.id = id;
     }
 
-    public Departament(String denumire, String descrere) {
+    public Departament(String denumire, String descriere) {
         this.denumire = denumire;
-        this.descrere = descrere;
+        this.descriere = descriere;
     }
 
     public int getId() {
@@ -40,8 +40,8 @@ public class Departament {
         return denumire;
     }
 
-    public String getDescrere() {
-        return descrere;
+    public String getDescriere() {
+        return descriere;
     }
 
     public void setId(int id) {
@@ -52,8 +52,8 @@ public class Departament {
         this.denumire = denumire;
     }
 
-    public void setDescrere(String descrere) {
-        this.descrere = descrere;
+    public void setDescriere(String descriere) {
+        this.descriere = descriere;
     }
 
     @Override
@@ -79,6 +79,11 @@ public class Departament {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Departament{" + "id=" + id + ", denumire=" + denumire + ", descriere=" + descriere + '}';
     }
 
 }
