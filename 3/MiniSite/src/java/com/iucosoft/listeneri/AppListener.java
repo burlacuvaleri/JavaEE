@@ -29,8 +29,8 @@ public class AppListener implements ServletContextListener {
         Context initContext = new InitialContext();
         Context envContext = (Context) initContext.lookup("java:/comp/env");
         DataSource ds = (DataSource) envContext.lookup(name);
-
-        LOG.info("A FOST FACUT DEPLOY");
+        de scris cod LOG
+        .info("A FOST FACUT DEPLOY");
     }
 
     @Override
