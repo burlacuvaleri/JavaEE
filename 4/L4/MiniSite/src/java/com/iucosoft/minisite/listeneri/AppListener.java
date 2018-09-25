@@ -24,9 +24,12 @@ import javax.sql.DataSource;
 public class AppListener implements ServletContextListener {
 
     private static final Logger LOG = Logger.getLogger(AppListener.class.getName());
+    private static Integer contorSesiuni = 0;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+
+        sce.getServletContext().setAttribute("contorSesiuni", contorSesiuni);
 
         try {
             Context initContext = new InitialContext();
@@ -37,7 +40,7 @@ public class AppListener implements ServletContextListener {
                 LOG.info("CONEXIUNEA LA BD CREATA CU SUCCES!!!!");
                 LOG.info(conn.toString());
                 sce.getServletContext().setAttribute("ds", ds);
-               
+
                 if (conn != null && !conn.isClosed()) {
                     conn.close();
                 }
@@ -49,6 +52,7 @@ public class AppListener implements ServletContextListener {
             Logger.getLogger(AppListener.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         DataSource ds = (DataSource) sce.getServletContext().getAttribute("ds");

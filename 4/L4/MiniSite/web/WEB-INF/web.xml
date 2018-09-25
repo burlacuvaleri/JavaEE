@@ -4,6 +4,14 @@
         <description>ServletContextListener, ServletContextAttributeListener</description>
         <listener-class>com.iucosoft.minisite.listeneri.AppListener</listener-class>
     </listener>
+    <listener>
+        <description>HttpSessionListener</description>
+        <listener-class>com.iucosoft.minisite.listeneri.SessonServletListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextAttributeListener</description>
+        <listener-class>com.iucosoft.minisite.listeneri.AppAtributeServletListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>cmsshoweditdepartamentserv</servlet-name>
         <servlet-class>com.iucosoft.minisite.servlete.cms.departamente.cmsshoweditdepartamentserv</servlet-class>
@@ -24,6 +32,10 @@
         <servlet-name>cmsdeletedepartamentserv</servlet-name>
         <servlet-class>com.iucosoft.minisite.servlete.cms.departamente.cmsdeletedepartamentserv</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>loginserv</servlet-name>
+        <servlet-class>com.iucosoft.minisite.servlete.client.loginserv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cmsshoweditdepartamentserv</servlet-name>
         <url-pattern>/cms/cmsshoweditdepartamentserv</url-pattern>
@@ -43,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>cmsdeletedepartamentserv</servlet-name>
         <url-pattern>/cms/cmsdeletedepartamentserv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginserv</servlet-name>
+        <url-pattern>/loginserv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

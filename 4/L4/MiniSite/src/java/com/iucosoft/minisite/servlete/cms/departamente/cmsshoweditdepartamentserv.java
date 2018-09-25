@@ -7,6 +7,7 @@ package com.iucosoft.minisite.servlete.cms.departamente;
 
 import com.iucosoft.minisite.dao.DepartamentDaoIntf;
 import com.iucosoft.minisite.entitati.Departament;
+import com.iucosoft.minisite.entitati.MyUser;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.iucosoft.minisite.mockservicii.DepartamentMockDaoImpl;
+import com.iucosoft.minisite.servlete.constants.MyConstants;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,6 +38,25 @@ public class cmsshoweditdepartamentserv extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Verificare de fiecare data la intrarea in fiecare serveket de tip CMS !!!
+        // Ca sa fie mai comod facem 1 FILTRU
+        // Care va fi configurat sa fie apelat automat la apelarea fiecarui servlet din CMS
+        /*
+        HttpSession session = request.getSession();
+        if (session == null) {
+            throw new IOException("Session is NULL !");
+        }
+        MyUser myUser = (MyUser) session.getAttribute(MyConstants.ACTIVATED_USER);
+        if (session != null && myUser == null) {
+            throw new IOException("User is NULL !");
+        }
+        if (session != null && myUser != null) {
+            if (!myUser.isIsActivated()) {
+                throw new IOException("User is disabled !");
+            }
+        }
+         */
+        // Tot bine este sesiune si este user activat
         String idStr = request.getParameter("id");
 
         int id = 0;
